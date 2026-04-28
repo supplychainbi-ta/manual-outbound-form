@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///C:/Users/nurrc/Downloads/manual_outbound_form_29.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Outbound Request</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f3;color:#1a1a18;font-size:14px;line-height:1.5}
+.page{max-width:960px;margin:0 auto;padding:1.5rem 1.5rem 3rem}
+h1{font-size:18px;font-weight:600;margin-bottom:1.25rem}
+h2{font-size:15px;font-weight:600;margin-bottom:1rem}
+.sec{background:#fff;border:1px solid #e5e3dc;border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+.stitle{font-size:11px;font-weight:600;color:#73726c;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.fg{margin-bottom:.875rem}
+label{display:block;font-size:13px;color:#73726c;margin-bottom:3px}
+.req{color:#c0392b}
+input[type=text],input[type=tel],input[type=email],input[type=number],textarea{width:100%;font-size:14px;padding:7px 10px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18;transition:border-color .15s}
+input:focus,textarea:focus{outline:none;border-color:#888780}
+textarea{resize:vertical;min-height:72px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sw{position:relative}
+.si{width:100%;font-size:14px;padding:7px 10px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18}
+.si:focus{outline:none;border-color:#888780}
+.dd{background:#fff;border:1px solid #c4c2b9;border-radius:8px;max-height:320px;overflow-y:auto;position:absolute;width:100%;z-index:100;margin-top:2px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.do{padding:8px 12px;font-size:13px;cursor:pointer;color:#1a1a18}
+.do:hover{background:#f1efe8}
+.do.dis{color:#b4b2a9;cursor:default}
+.sk-tbl{width:100%;border-collapse:collapse;margin-top:.625rem;table-layout:auto;min-width:820px}
+.sk-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sk-tbl th{font-size:10px;color:#73726c;text-align:left;padding:5px 6px;border-bottom:1px solid #e5e3dc;font-weight:600}
+.sk-tbl td{font-size:12px;padding:5px 6px;border-bottom:1px solid #e5e3dc;vertical-align:top}
+.sk-tbl tr:last-child td{border-bottom:none}
+.bdg{display:inline-block;padding:1px 6px;border-radius:99px;font-size:10px;font-weight:600;white-space:nowrap}
+.btt{background:#EEEDFE;color:#3C3489}
+.bec{background:#E1F5EE;color:#085041}
+.beb{background:#FAEEDA;color:#633806}
+.bfa{background:#FBEAF0;color:#72243E}
+.bnb{background:#F1EFE8;color:#444441}
+.bok{background:#e8f5e9;color:#2e7d32}
+.brv{background:#fff8e1;color:#856404}
+.bdc{background:#fdecea;color:#b71c1c}
+.gp{font-size:10px;padding:2px 6px;border-radius:4px;display:inline-block;line-height:1.4;margin-top:2px;font-weight:500}
+.gok{background:#e8f5e9;color:#2e7d32}
+.grv{background:#fff8e1;color:#856404}
+.gdc{background:#fdecea;color:#b71c1c}
+.rb{font-size:12px;color:#c0392b;cursor:pointer;background:none;border:none;padding:2px 5px;border-radius:4px}
+.rb:hover{background:#fdecea}
+.sbtn{width:100%;padding:11px;font-size:15px;font-weight:600;background:#1a1a18;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:.5rem;transition:opacity .15s}
+.sbtn:hover{opacity:.85}
+.ebox{background:#fdecea;border:1px solid #f5a9a9;border-radius:8px;padding:10px 14px;margin-bottom:.75rem;font-size:13px;color:#b71c1c}
+.wbox{background:#fff8e1;border-left:3px solid #f59e0b;border-radius:8px;padding:10px 14px;margin-top:.625rem;font-size:13px;color:#856404}
+.rcard{border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;border:1px solid #e5e3dc}
+.rok{background:#e8f5e9}
+.rwn{background:#fff8e1}
+.st{width:100%;border-collapse:collapse}
+.st td{font-size:13px;padding:5px 6px;border-bottom:1px solid #e5e3dc;vertical-align:top}
+.st td:first-child{color:#73726c;width:36%;font-size:12px}
+.st tr:last-child td{border-bottom:none}
+.cc{font-family:'Courier New',monospace;font-size:15px;font-weight:700;background:#f1efe8;padding:4px 10px;border-radius:6px;display:inline-block;letter-spacing:.02em}
+.empty-txt{font-size:13px;color:#b4b2a9;padding:6px 0}
+</style>
+<link rel="stylesheet" href="./last_files/leaflet.min.css">
+<script src="./last_files/leaflet.min.js.download"></script>
+</head>
+<body>
+<div class="page">
+<div id="vf">
+<h1>Manual Outbound Request</h1>
+
+<div class="sec">
+<div class="stitle">Requestor Information</div>
+<div class="fg"><label>Requestor Name <span class="req">*</span></label><input type="text" id="req" placeholder="Full name"></div>
+<div class="fg"><label>Requestor Email <span class="req">*</span></label><input type="email" id="req-email" placeholder="your.name@tentanganak.com"><div style="font-size:11px;color:#73726c;margin-top:3px">Used for notifications about your request status.</div></div>
+<div class="g2">
+  <div class="fg"><label>Department <span class="req">*</span></label>
+    <div class="sw"><input class="si" id="sd" placeholder="Search department..." oninput="fd(&#39;d&#39;)" onfocus="fd(&#39;d&#39;)" onblur="hd(&#39;d&#39;,250)" autocomplete="off"><div class="dd" id="dd-d" style="display:none"></div><input type="hidden" id="vd"></div>
+  </div>
+  <div class="fg"><label>Sales channel <span class="req">*</span></label>
+    <div class="sw"><input class="si" id="sc" placeholder="Search channel..." oninput="fd(&#39;c&#39;)" onfocus="fd(&#39;c&#39;)" onblur="hd(&#39;c&#39;,250)" autocomplete="off"><div class="dd" id="dd-c" style="display:none"></div><input type="hidden" id="vc"></div>
+  </div>
+</div>
+<div class="fg"><label>Source of budget <span class="req">*</span></label>
+  <div class="sw"><input class="si" id="sb" placeholder="Search budget..." oninput="fd(&#39;b&#39;)" onfocus="fd(&#39;b&#39;)" onblur="hd(&#39;b&#39;,250)" autocomplete="off"><div class="dd" id="dd-b" style="display:none"></div><input type="hidden" id="vb"></div>
+</div>
+<label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;user-select:none;margin-bottom:.75rem">
+  <input type="checkbox" id="use-budget" style="width:16px;height:16px;min-width:16px;margin-top:2px;cursor:pointer;accent-color:#1a1a18" onchange="toggleBudget()">
+  <div>
+    <div style="font-size:13px;font-weight:600;color:#1a1a18">Filter SKU recommendations by available budget</div>
+    <div style="font-size:12px;color:#73726c;margin-top:2px">When enabled, alternative SKU recommendations for declined items will also be filtered by your remaining available budget.</div>
+  </div>
+</label>
+<div id="budget-input-wrap" style="display:none">
+  <div class="fg" style="margin-bottom:0">
+    <label>Total Available Budget (IDR) <span class="req">*</span></label>
+    <input type="number" id="total-budget" min="0" placeholder="e.g. 5000000" oninput="ren()">
+    <div id="budget-remaining-info" style="font-size:12px;color:#73726c;margin-top:4px;display:none"></div>
+  </div>
+</div>
+</div>
+
+<div class="sec">
+<div class="stitle">Requested Items</div>
+<div class="sw"><input class="si" id="ss" placeholder="Search SKU by name, ID, or brand..." oninput="fs()" onfocus="ss2()" onblur="hs(250)" autocomplete="off"><div class="dd" id="dd-s" style="display:none"></div></div>
+<div id="sku-load-status" style="font-size:11px;color:#73726c;margin-top:4px">⚠️ Could not load live SKU data. Using cached data.</div>
+<div id="dw" style="display:none"></div>
+<div class="empty-txt" id="se" style="display: block;">No items added yet. Use the search field above to add SKUs.</div>
+<div id="tw" style="display:none">
+<div class="sk-tbl-wrap">
+  <table class="sk-tbl">
+    <colgroup><col style="min-width:220px"><col style="min-width:110px"><col style="min-width:65px"><col style="min-width:65px"><col style="min-width:75px"><col style="min-width:110px"><col style="min-width:130px"><col style="min-width:180px"><col style="min-width:40px"></colgroup>
+    <thead><tr><th>SKU</th><th>Brand</th><th>SOH</th><th>DOI</th><th>Qty</th><th>COGS/unit</th><th>Estimated Cost</th><th>Gate</th><th></th></tr></thead>
+    <tbody id="tb"></tbody>
+    <tfoot id="tfoot-budget" style="display:none">
+      <tr style="background:#f5f5f3;border-top:2px solid #d3d1c7">
+        <td colspan="6" style="padding:6px 8px;font-size:12px;font-weight:600;color:#73726c">Total Estimated Cost</td>
+        <td colspan="3" style="padding:6px 8px;font-size:13px;font-weight:700;color:#1a1a18" id="total-budget-display"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+</div>
+</div>
+
+<div class="sec">
+<div class="stitle">Recipient Information</div>
+<div class="g2">
+  <div class="fg"><label>Recipient Name <span class="req">*</span></label><input type="text" id="rn" placeholder="Full name"></div>
+  <div class="fg"><label>Recipient Phone Number <span class="req">*</span></label><input type="tel" id="rp" placeholder="08xxxxxxxxxx" oninput="normPhone(this)" onblur="normPhone(this)"><div style="font-size:11px;color:#73726c;margin-top:3px">Format: 08xxxxxxxxxx (without dashes or spaces)</div></div>
+</div>
+<div class="fg"><label>Order Email <span style="font-size:11px;color:#b4b2a9">(optional)</span></label><input type="email" id="re" placeholder="email@example.com"></div>
+<div class="fg"><label>Delivery Address <span class="req">*</span></label><textarea id="ra" placeholder="Street name and number (e.g. Jalan Sudirman No. 10)" oninput="onAddressInput()"></textarea></div>
+
+<!-- Wilayah dropdowns — Province + Kab/Kota only -->
+<div class="g2">
+  <div class="fg">
+    <label>Province <span class="req">*</span></label>
+    <div class="sw"><input class="si" id="sp" placeholder="Search province..." oninput="filterProv()" onfocus="openProv()" onblur="closeProv(250)" autocomplete="off"><div class="dd" id="dd-p" style="display:none"></div><input type="hidden" id="vp"></div>
+  </div>
+  <div class="fg">
+    <label>Kabupaten / Kota <span class="req">*</span></label>
+    <div class="sw"><input class="si" id="sk" placeholder="Select province first..." oninput="filterKab()" onfocus="openKab()" onblur="closeKab(250)" autocomplete="off" disabled=""><div class="dd" id="dd-k" style="display:none"></div><input type="hidden" id="vk"></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="fg"><label>Kecamatan <span class="req">*</span></label><input type="text" id="skec" placeholder="e.g. Setiabudi"></div>
+  <div class="fg"><label>Postal Code <span class="req">*</span></label><input type="text" id="rkp" placeholder="e.g. 12910" maxlength="5"></div>
+</div>
+<div class="g2">
+  <div class="fg"><label>Country <span class="req">*</span></label><input type="text" id="rng" value="Indonesia"></div>
+</div>
+
+<!-- Interactive map -->
+<div class="fg" id="map-section">
+  <label>Delivery Location Pin <span class="req" id="map-req">*</span></label>
+  <div style="font-size:12px;color:#73726c;margin-bottom:6px">Type your address above and click <strong>Find on Map</strong>, or click directly on the map to pin the exact location.</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+    <button type="button" onclick="geocodeAndPin()" id="find-map-btn" style="font-size:12px;padding:6px 14px;border-radius:7px;border:1px solid #1a1a18;background:#1a1a18;color:#fff;cursor:pointer">📍 Find on Map</button>
+    <div id="map-geocode-status" style="font-size:11px;color:#73726c;align-self:center"></div>
+  </div>
+  <div id="map" style="height:350px;border-radius:10px;border:1.5px solid #d3d1c7;overflow:hidden;position:relative" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+    <div style="position: absolute; inset: 0px; display: none; align-items: center; justify-content: center; background: rgb(245, 245, 243); color: rgb(115, 114, 108); font-size: 13px;" id="map-placeholder">Map will load here</div>
+  <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="./last_files/4237.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, 30px, 0px); opacity: 1;"><img alt="" src="./last_files/4236.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, -226px, 0px); opacity: 1;"><img alt="" src="./last_files/4237(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, 30px, 0px); opacity: 1;"><img alt="" src="./last_files/4237(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, 30px, 0px); opacity: 1;"><img alt="" src="./last_files/4238.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, 286px, 0px); opacity: 1;"><img alt="" src="./last_files/4236(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, -226px, 0px); opacity: 1;"><img alt="" src="./last_files/4236(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, -226px, 0px); opacity: 1;"><img alt="" src="./last_files/4238(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, 286px, 0px); opacity: 1;"><img alt="" src="./last_files/4238(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, 286px, 0px); opacity: 1;"><img alt="" src="./last_files/4237(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, 30px, 0px); opacity: 1;"><img alt="" src="./last_files/4237(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, 30px, 0px); opacity: 1;"><img alt="" src="./last_files/4236(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, -226px, 0px); opacity: 1;"><img alt="" src="./last_files/4236(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, -226px, 0px); opacity: 1;"><img alt="" src="./last_files/4238(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, 286px, 0px); opacity: 1;"><img alt="" src="./last_files/4238(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, 286px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.671e+06px, 1.08482e+06px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="file:///C:/Users/nurrc/Downloads/manual_outbound_form_29.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="file:///C:/Users/nurrc/Downloads/manual_outbound_form_29.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap</div></div></div></div>
+  <input type="hidden" id="gmaps-lat">
+  <input type="hidden" id="gmaps-lng">
+  <div id="gmaps-status" style="font-size:11px;margin-top:4px"></div>
+</div>
+<div class="fg"><label>Additional Remarks</label><input type="text" id="rmk" placeholder="e.g. handle with care, include invoice, etc."></div>
+</div>
+
+<div class="sec">
+<div class="stitle">Courier Arrangement</div>
+
+<!-- Checkbox: arrange myself -->
+<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;user-select:none;margin-bottom:1rem">
+  <input type="checkbox" id="self-arrange" style="width:18px;height:18px;min-width:18px;margin-top:2px;cursor:pointer;accent-color:#1a1a18" onchange="onSelfArrangeChange()">
+  <div>
+    <div style="font-size:14px;font-weight:600;color:#1a1a18">I will arrange the courier myself</div>
+    <div style="font-size:13px;color:#73726c;margin-top:4px;line-height:1.6">Check this if you will handle the courier booking independently. The system will still prepare the warehouse order template, but will not create any courier order on your behalf.</div>
+  </div>
+</label>
+
+<!-- Courier selection -->
+<div class="fg">
+  <label>Courier <span class="req">*</span></label>
+  <div id="courier-options" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:4px">
+    <label id="lbl-jne" class="courier-opt" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid #d3d1c7;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500">
+      <input type="radio" name="courier" id="c-jne" value="JNE" onchange="onCourierChange()" style="accent-color:#1a1a18"> JNE
+    </label>
+    <label id="lbl-lalamove" class="courier-opt" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid #d3d1c7;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500">
+      <input type="radio" name="courier" id="c-lalamove" value="Lalamove" onchange="onCourierChange()" style="accent-color:#1a1a18"> Lalamove
+    </label>
+    <label id="lbl-paxel" class="courier-opt" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid #d3d1c7;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;display:none">
+      <input type="radio" name="courier" id="c-paxel" value="Paxel" onchange="onCourierChange()" style="accent-color:#1a1a18"> Paxel
+    </label>
+  </div>
+  <div id="courier-note" style="font-size:11px;color:#73726c;margin-top:6px"></div>
+</div>
+
+</div>
+
+<div id="ferr" class="ebox" style="display:none"></div>
+<button class="sbtn" id="submit-btn" onclick="sub()">Submit Request</button>
+</div>
+
+<div id="vr" style="display:none">
+<h1>Submission Result</h1>
+<div id="ri"></div>
+<button class="sbtn" style="margin-top:1rem" onclick="rst()">Submit New Request</button>
+</div>
+</div>
+
+<script>
+const DEPTS=["C-Suite","Supply Chain","Finance","Legal","People","Corporate Strategy","Business Intelligence","Product","Technology","Creative","Online Sales","Private Label","Partnership, Community, & PPGR","Expert","Brand Business","Content Social Media and Apps","Offline Sales"];
+const CHS=["Company Wide","Instagram","Offline","Offline : Distributor","Offline : Distributor : GT Store","Offline : Distributor : MT Store","Offline : General Trade (GT)","Offline : Individual Reseller (IR)","Offline : Medical","Offline : Modern Trade (MT)","Offline : Offline Events","Online","Online : In App","Online : Lazada","Online : Lazada : Lazada EB","Online : Lazada : Lazada EC","Online : Lazada : Lazada TAO","Online : Shopee","Online : Shopee : Shopee EB","Online : Shopee : Shopee EC","Online : Shopee : Shopee TAO","Online : Tiktok","Online : Tiktok : Tiktok EB","Online : Tiktok : Tiktok EC","Online : Tiktok : Tiktok TAO","Online : Tokopedia","Online : Tokopedia : Tokopedia EB","Online : Tokopedia : Tokopedia EC","Online : Tokopedia : Tokopedia TAO","Online : Website","Partnership"];
+const PROVS=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Kepulauan Riau","Jambi","Bengkulu","Sumatera Selatan","Kepulauan Bangka Belitung","Lampung","Banten","DKI Jakarta","Jawa Barat","Jawa Tengah","DI Yogyakarta","Jawa Timur","Bali","Nusa Tenggara Barat","Nusa Tenggara Timur","Kalimantan Barat","Kalimantan Tengah","Kalimantan Selatan","Kalimantan Timur","Kalimantan Utara","Sulawesi Utara","Gorontalo","Sulawesi Tengah","Sulawesi Barat","Sulawesi Selatan","Sulawesi Tenggara","Maluku","Maluku Utara","Papua Barat","Papua Barat Daya","Papua","Papua Tengah","Papua Pegunungan","Papua Selatan"];
+const BGTS=[{l:"Commerce - Free Samp Affiliate",c:"CSRL"},{l:"Commerce - Affiliate",c:"CAFF"},{l:"Commerce - Content Creator",c:"CCC"},{l:"Commerce - Live Streaming",c:"CLVS"},{l:"Brand - Paid KOL",c:"BKOL"},{l:"Brand - Visit KOL",c:"BVKOL"},{l:"Brand - PR Package",c:"BPRP"},{l:"Brand - Production Shooting",c:"BSHT"},{l:"Brand - Give Away",c:"BGA"},{l:"Brand - Give Away (Offline)",c:"BGAO"},{l:"Brand - Hampers Buzzer",c:"BHB"},{l:"Brand - Hospital Sample",c:"BHS"},{l:"Brand - Sample B2B",c:"SRL"},{l:"Community - Aybunssador",c:"CAYBUNSSADOR"},{l:"Community - AyBun KUAT",c:"CAYBUNKUAT"},{l:"Community - BCDH",c:"CBCDH"},{l:"Community - AyBun Tabungan",c:"CAYBUNTAB"},{l:"Community - PR Package",c:"CPRP"},{l:"Community - CSR",c:"CCSR"},{l:"Community - Survey",c:"CSV"},{l:"Community - AyBun Creator",c:"CAYBUNCR"},{l:"Community - Branding Event",c:"CBE"},{l:"B2C Transaction",c:"MB2C"},{l:"B2B Transaction",c:"MB2B"},{l:"Event Sales Offline",c:"ESO"},{l:"Launching - Brand PR Package",c:"MLBPR"},{l:"Launching - Community",c:"MLC"},{l:"Launching - Commerce - Affiliate",c:"MLAFF"},{l:"Launching - Commerce - Live Shopping",c:"MLLS"},{l:"Launching - Brand - KOL",c:"MLBKOL"},{l:"Launching - Internal",c:"MLI"},{l:"Branding - ABI",c:"BRABI"},{l:"Customer Compensation",c:"MGA"},{l:"Private Label - Sample",c:"PSRL"},{l:"Private Label - Panel Incentive",c:"PPAN"},{l:"Sample B2B",c:"SRL"},{l:"People - Employee Engagement",c:"PPLEE"}];
+const THR={"Thinker Tales":{q:20,d:100},"Expert Care":{q:50,d:70},"Expert Boost":{q:100,d:50},"Fashion":{q:20,d:60},"Non Brand/Unassigned":{q:20,d:60}};
+const BBC={"Thinker Tales":"btt","Expert Care":"bec","Expert Boost":"beb","Fashion":"bfa","Non Brand/Unassigned":"bnb"};
+
+// SKU data — loaded live from backend on page init
+// Falls back to empty array if backend unreachable
+let SKU = [];
+
+async function loadSkuData() {
+  const searchInput = document.getElementById('ss');
+  const skuStatus   = document.getElementById('sku-load-status');
+
+  try {
+    if (skuStatus) skuStatus.textContent = 'Loading SKU data...';
+    if (searchInput) searchInput.disabled = true;
+
+    const res  = await fetch(BACKEND_URL + '?action=getSkuMaster');
+    const data = await res.json();
+
+    if (Array.isArray(data) && data.length > 0) {
+      // Deduplicate by SKU ID
+      const seen = new Set();
+      SKU = data.filter(x => {
+        if (seen.has(x.id)) return false;
+        seen.add(x.id);
+        return true;
+      });
+      if (skuStatus) skuStatus.textContent = `${SKU.length} SKUs loaded`;
+      if (searchInput) searchInput.disabled = false;
+      if (skuStatus) setTimeout(() => { skuStatus.textContent = ''; }, 3000);
+    } else {
+      throw new Error('Empty response');
+    }
+  } catch (err) {
+    if (skuStatus) skuStatus.textContent = '⚠️ Could not load live SKU data. Using cached data.';
+    if (searchInput) searchInput.disabled = false;
+    // Fallback to empty — form is still usable but SKU search will show no results
+    SKU = [];
+    console.warn('SKU load failed:', err.message);
+  }
+}
+
+
+let rows=[],ctr=0;
+
+// parseGmaps removed — replaced by Leaflet interactive map + geocoding
+
+// Normalize Indonesian phone number to 08XXXXXXXXXX format
+function normPhone(el) {
+  let v = el.value.replace(/\D/g, ''); // strip non-digits
+  if (v.startsWith('62')) v = '0' + v.slice(2);  // +62 or 62 → 0
+  else if (v.startsWith('8')) v = '0' + v;        // 8xxx → 08xxx
+  el.value = v;
+}
+
+// ── Courier arrangement logic ─────────────────────────────────
+const JABODETABEK = ['Jakarta Pusat','Jakarta Selatan','Jakarta Barat','Jakarta Timur','Jakarta Utara',
+  'Kota Bogor','Kabupaten Bogor','Kota Depok','Kota Tangerang','Kabupaten Tangerang',
+  'Kota Tangerang Selatan','Kota Bekasi','Kabupaten Bekasi'];
+
+function isSelfArrange() { return document.getElementById('self-arrange').checked; }
+function getSelectedCourier() {
+  const r = document.querySelector('input[name="courier"]:checked');
+  return r ? r.value : '';
+}
+function isLalamove() { return getSelectedCourier() === 'Lalamove'; }
+function isJNE()      { return getSelectedCourier() === 'JNE'; }
+
+function onSelfArrangeChange() {
+  const self = isSelfArrange();
+  // Show/hide Paxel option
+  document.getElementById('lbl-paxel').style.display = self ? 'flex' : 'none';
+  // If Lalamove was selected and switching to self-arrange, keep selection
+  // If switching from self-arrange, hide Paxel and deselect if Paxel was chosen
+  if (!self && getSelectedCourier() === 'Paxel') {
+    document.getElementById('c-jne').checked = true;
+  }
+  onCourierChange();
+}
+
+function onCourierChange() {
+  const self    = isSelfArrange();
+  const courier = getSelectedCourier();
+  const note    = document.getElementById('courier-note');
+  const mapSec  = document.getElementById('map-section');
+  const mapReq  = document.getElementById('map-req');
+
+  // Update courier option styles
+  document.querySelectorAll('.courier-opt').forEach(el => {
+    const input = el.querySelector('input[type="radio"]');
+    el.style.borderColor = input && input.checked ? '#1a1a18' : '#d3d1c7';
+    el.style.background  = input && input.checked ? '#f5f5f3' : '#fff';
+  });
+
+  if (courier === 'Lalamove' && !self) {
+    note.innerHTML = `<span style="color:#c0392b">⚠️ Lalamove is only available for deliveries within <strong>Jabodetabek</strong> area. The system will automatically create a Lalamove order upon submission.</span>`;
+    mapSec.style.display = '';
+    mapReq.style.display = '';
+  } else if (courier === 'JNE' && !self) {
+    note.innerHTML = `<span style="color:#2e7d32">JNE order will be batched and processed every 2 hours (10:00–18:00).</span>`;
+    mapSec.style.display = '';
+    mapReq.style.display = '';
+  } else if (self) {
+    note.innerHTML = `You will handle ${courier || 'courier'} booking independently.`;
+    mapSec.style.display = 'none';
+    if (mapReq) mapReq.style.display = 'none';
+  } else {
+    note.textContent = '';
+  }
+}
+
+function fmt(n){return n>0?'Rp '+Math.round(n).toLocaleString('id-ID'):'—';}
+
+function totalBudgetUsed(){
+  return rows.reduce((sum,r)=>{
+    const q=r.q||0;
+    return sum+(q>0?q*(r.sk.cg||0):0);
+  },0);
+}
+
+function remainingBudget(){
+  const tb=parseFloat(document.getElementById('total-budget')?.value)||0;
+  return tb - totalBudgetUsed();
+}
+
+function toggleBudget(){
+  const on=document.getElementById('use-budget').checked;
+  document.getElementById('budget-input-wrap').style.display=on?'block':'none';
+  ren();
+}
+
+function gt(sk,q){
+  const t=THR[sk.b]||{q:20,d:60};
+  if(q<t.q)return{r:"ok",l:"Gate 1 — Auto-approved",c:"gok"};
+  if(sk.a<=0||sk.d<=0)return{r:"rv",l:"Gate 2 — No sales data (SC review required)",c:"grv"};
+  const sim=(sk.s-q)/sk.a;
+  if(sim>=t.d)return{r:"ok",l:"Gate 2 — Approved (proj. DOI: "+Math.round(sim)+"d)",c:"gok"};
+  return{r:"dc",l:"Gate 2 — Declined (proj. DOI: "+Math.round(sim)+"d < "+t.d+"d)",c:"gdc"};
+}
+
+function getRecommendations(brand, qty, budgetRemaining){
+  const useBudget=document.getElementById('use-budget').checked;
+  const thr=THR[brand]||{q:20,d:60};
+  return SKU
+    .filter(s=>{
+      if(s.b!==brand)return false;
+      if(rows.some(r=>r.sk.id===s.id))return false;
+      if(s.a<=0||s.d<=0)return false;
+      const simDoi=(s.s-qty)/s.a;
+      if(simDoi<thr.d)return false;
+      if(useBudget && budgetRemaining!=null){
+        const cost=qty*(s.cg||0);
+        if(cost>budgetRemaining)return false;
+      }
+      return true;
+    })
+    .map(s=>{
+      const simDoi=Math.round((s.s-qty)/s.a);
+      const cost=qty*(s.cg||0);
+      return {...s,simDoi,cost};
+    })
+    .sort((a,b)=>b.simDoi-a.simDoi)
+    .slice(0,5);
+}
+
+function chkDc(){
+  const dc=rows.filter(r=>r.q>0&&gt(r.sk,r.q).r==="dc");
+  const el=document.getElementById('dw');
+  if(!dc.length){el.style.display='none';return;}
+
+  const useBudget=document.getElementById('use-budget').checked;
+  const totalBgt=parseFloat(document.getElementById('total-budget')?.value)||0;
+  const bc_map={"Thinker Tales":"btt","Expert Care":"bec","Expert Boost":"beb","Fashion":"bfa","Non Brand/Unassigned":"bnb"};
+
+  // Calculate budget already used by approved/review rows (excluding declined)
+  const budgetUsedByOthers=rows
+    .filter(r=>r.q>0&&gt(r.sk,r.q).r!=="dc")
+    .reduce((sum,r)=>sum+r.q*(r.sk.cg||0),0);
+
+  let html="<div style='font-weight:700;font-size:13px;margin-bottom:.5rem'>Submission blocked — one or more items have been auto-declined</div>";
+
+  dc.forEach(r=>{
+    const simDoi=Math.round((r.sk.s-r.q)/r.sk.a);
+    const thr=THR[r.sk.b]?.d||60;
+    const bc=bc_map[r.sk.b]||'bnb';
+
+    // Available budget for this declined SKU = total - used by others
+    const budgetForThis = useBudget && totalBgt>0 ? totalBgt - budgetUsedByOthers : null;
+    const recs=getRecommendations(r.sk.b, r.q, budgetForThis);
+
+    html+=`<div style='background:#fff;border:1px solid #e5e3dc;border-radius:8px;padding:.875rem;margin-top:.625rem'>`;
+    html+=`<div style='display:flex;align-items:flex-start;gap:8px;margin-bottom:.5rem'>`;
+    html+=`<span style='font-size:11px;background:#fdecea;color:#b71c1c;padding:2px 6px;border-radius:4px;font-weight:600;white-space:nowrap;margin-top:1px'>Declined</span>`;
+    html+=`<div><div style='font-size:12px;font-weight:600;color:#1a1a18'>${r.sk.n}</div>`;
+    html+=`<div style='font-size:11px;color:#888;margin-top:1px'>Projected DOI after fulfilment: <strong style='color:#c0392b'>${simDoi}d</strong> — threshold: <strong>${thr}d</strong> &nbsp;|&nbsp; Qty: ${r.q}`;
+    if(useBudget && totalBgt>0) html+=` &nbsp;|&nbsp; Remaining budget for this item: <strong style='color:#1a1a18'>${fmt(budgetForThis)}</strong>`;
+    html+=`</div></div></div>`;
+
+    const filterNote = useBudget && totalBgt>0
+      ? `qty ${r.q} & within budget <strong>${fmt(budgetForThis)}</strong>`
+      : `qty ${r.q}`;
+
+    if(recs.length){
+      html+=`<div style='font-size:11px;font-weight:600;color:#73726c;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem'>Alternative items from brand <span class='bdg ${bc}' style='font-size:10px'>${r.sk.b}</span> untuk ${filterNote}:</div>`;
+      html+=`<table style='width:100%;border-collapse:collapse;font-size:12px'>`;
+      const budgetHeader = useBudget && totalBgt>0 ? `<th style='text-align:right;padding:4px 6px;font-weight:600;color:#73726c;font-size:10px'>Est. Cost</th>` : '';
+      html+=`<thead><tr style='border-bottom:1px solid #e5e3dc'><th style='text-align:left;padding:4px 6px;font-weight:600;color:#73726c;font-size:10px'>SKU</th><th style='text-align:right;padding:4px 6px;font-weight:600;color:#73726c;font-size:10px'>SOH</th><th style='text-align:right;padding:4px 6px;font-weight:600;color:#73726c;font-size:10px'>Current DOI</th><th style='text-align:right;padding:4px 6px;font-weight:600;color:#73726c;font-size:10px'>Proj. DOI</th>${budgetHeader}<th style='padding:4px 6px'></th></tr></thead><tbody>`;
+      recs.forEach(s=>{
+        const safeId=s.id.replace(/'/g,"\\'");
+        const alreadyAdded=rows.some(rr=>rr.sk.id===s.id);
+        const budgetCell = useBudget && totalBgt>0 ? `<td style='text-align:right;padding:4px 6px'><span style='font-size:11px;color:#444'>${fmt(s.cost)}</span></td>` : '';
+        html+=`<tr style='border-bottom:1px solid #f1efe8'><td style='padding:4px 6px'><div style='font-size:11px;font-weight:600;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap' title='${s.n}'>${s.n}</div><div style='font-size:10px;color:#aaa'>${s.id}</div></td><td style='text-align:right;padding:4px 6px;color:#444'>${s.s.toLocaleString()}</td><td style='text-align:right;padding:4px 6px;color:#444'>${s.d}d</td><td style='text-align:right;padding:4px 6px'><span style='background:#e8f5e9;color:#2e7d32;padding:1px 6px;border-radius:4px;font-weight:600;font-size:11px'>${s.simDoi}d</span></td>${budgetCell}<td style='padding:4px 6px'>${alreadyAdded?`<span style='font-size:10px;color:#aaa'>Already added</span>`:`<button onclick="addFromRec('${safeId}')" style='font-size:11px;font-weight:600;background:#1a1a18;color:#fff;border:none;border-radius:5px;padding:3px 9px;cursor:pointer'>+ Add</button>`}</td></tr>`;
+      });
+      html+=`</tbody></table>`;
+    } else {
+      const noRecMsg = useBudget && totalBgt>0
+        ? `No alternative items found from brand ${r.sk.b} that meet the DOI threshold and budget constraint for qty ${r.q}.`
+        : `No alternative items found from brand ${r.sk.b} that can be requested with qty ${r.q} without triggering an auto-decline.`;
+      html+=`<div style='font-size:12px;color:#888;margin-top:.375rem;font-style:italic'>${noRecMsg}</div>`;
+    }
+    html+=`</div>`;
+  });
+
+  el.style.display='block';
+  el.className='wbox';
+  el.style.padding='1rem';
+  el.innerHTML=html;
+}
+
+function addFromRec(id){
+  const s=SKU.find(x=>x.id===id);
+  if(!s||rows.some(r=>r.sk.id===id))return;
+  rows.push({sk:s,q:0});
+  ren();
+}
+
+// ── Wilayah dropdown state ────────────────────────────────────
+let provList=[],kabList=[];
+let mapInstance=null,mapMarker=null,geocodeTimer=null;
+
+async function loadProvinsi(){
+  try{
+    const res=await fetch(BACKEND_URL+'?action=getProvinsi');
+    provList=await res.json();
+    renderProvDD(provList);
+  }catch(e){console.warn('loadProvinsi failed',e);}
+}
+function escQ(s){return String(s).replace(/'/g,"\\'")}
+function renderProvDD(list){
+  const dd=document.getElementById('dd-p');
+  dd.innerHTML=list.map(p=>`<div class="dd-item" onmousedown="selProv(${p.id},'${escQ(p.name)}')">${p.name}</div>`).join('')||'<div class="dd-item" style="color:#999">No results</div>';
+}
+function filterProv(){
+  const q=document.getElementById('sp').value.toLowerCase();
+  renderProvDD(provList.filter(p=>p.name.toLowerCase().includes(q)));
+  document.getElementById('dd-p').style.display='block';
+}
+function openProv(){filterProv();}
+function closeProv(ms){setTimeout(()=>{document.getElementById('dd-p').style.display='none';},ms);}
+function selProv(id,name){
+  document.getElementById('sp').value=name;
+  document.getElementById('vp').value=id;
+  document.getElementById('dd-p').style.display='none';
+  onProvChange();
+}
+async function onProvChange(){
+  const pid=document.getElementById('vp').value;
+  if(!pid)return;
+  const sk=document.getElementById('sk');
+  sk.value='';sk.disabled=false;sk.placeholder='Loading...';
+  document.getElementById('vk').value='';
+  kabList=[];
+
+  try{
+    const res=await fetch(`${BACKEND_URL}?action=getKabupaten&prov_id=${pid}`);
+    kabList=await res.json();
+    renderKabDD(kabList);
+    sk.placeholder='Search kabupaten/kota...';
+  }catch(e){sk.placeholder='Failed — try again';}
+  // Do NOT trigger geocode here — wait for user to type address
+}
+
+function onKabChange(){
+  // Do NOT trigger geocode here — wait for user to type address
+}
+
+function onAddressInput(){
+  clearTimeout(geocodeTimer);
+  geocodeTimer=setTimeout(tryGeocode,1000);
+}
+
+async function tryGeocode(){
+  const addr  = document.getElementById('ra').value.trim();
+  const kec   = document.getElementById('skec').value.trim();
+  const kab   = document.getElementById('sk').value.trim();
+  const prov  = document.getElementById('sp').value.trim();
+
+  // Only geocode if address field has content
+  if(!addr) return;
+
+  // Build full address — street first, then location hierarchy
+  const fullAddr = [addr, kec, kab, prov, 'Indonesia'].filter(Boolean).join(', ');
+  await geocodeAndPin(fullAddr);
+}
+function renderKabDD(list){
+  const dd=document.getElementById('dd-k');
+  dd.innerHTML=list.map(k=>`<div class="dd-item" onmousedown="selKab(${k.id},'${escQ(k.name)}')">${k.name}</div>`).join('')||'<div class="dd-item" style="color:#999">No results</div>';
+}
+function filterKab(){
+  const q=document.getElementById('sk').value.toLowerCase();
+  renderKabDD(kabList.filter(k=>k.name.toLowerCase().includes(q)));
+  document.getElementById('dd-k').style.display='block';
+}
+function openKab(){if(kabList.length)filterKab();}
+function closeKab(ms){setTimeout(()=>{document.getElementById('dd-k').style.display='none';},ms);}
+function selKab(id,name){
+  document.getElementById('sk').value=name;
+  document.getElementById('vk').value=id;
+  document.getElementById('dd-k').style.display='none';
+  onKabChange();
+}
+
+// ── Leaflet map ───────────────────────────────────────────────
+function initMapDefault(){setTimeout(()=>initMap(-6.2088,106.8456,13),600);}
+function initMap(lat,lng,zoom){
+  const ph=document.getElementById('map-placeholder');
+  if(ph)ph.style.display='none';
+  if(!window.L){console.warn('Leaflet not loaded');return;}
+  if(mapInstance){
+    mapInstance.setView([lat,lng],zoom||16);
+    if(mapMarker)mapMarker.setLatLng([lat,lng]);
+    else addMarker(lat,lng);
+    return;
+  }
+  mapInstance=L.map('map').setView([lat,lng],zoom||16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap',maxZoom:19
+  }).addTo(mapInstance);
+  mapInstance.on('click',e=>movePin(e.latlng.lat,e.latlng.lng));
+}
+function addMarker(lat,lng){
+  if(mapMarker)mapInstance.removeLayer(mapMarker);
+  mapMarker=L.marker([lat,lng],{draggable:true}).addTo(mapInstance);
+  mapMarker.on('dragend',e=>{const p=e.target.getLatLng();saveCoords(p.lat,p.lng);});
+  saveCoords(lat,lng);
+}
+function movePin(lat,lng){
+  if(mapInstance&&mapMarker)mapMarker.setLatLng([lat,lng]);
+  else if(mapInstance)addMarker(lat,lng);
+  mapInstance.setView([lat,lng],17);
+  saveCoords(lat,lng);
+}
+function saveCoords(lat,lng){
+  document.getElementById('gmaps-lat').value=lat;
+  document.getElementById('gmaps-lng').value=lng;
+  document.getElementById('gmaps-status').innerHTML=`<span style="color:#2e7d32">📍 Pinned: ${parseFloat(lat).toFixed(6)}, ${parseFloat(lng).toFixed(6)}</span>`;
+}
+function onAddressInput(){
+  clearTimeout(geocodeTimer);
+  geocodeTimer=setTimeout(tryGeocode,1000);
+}
+async function tryGeocode(){
+  const addr=[
+    document.getElementById('ra').value.trim(),
+    document.getElementById('skec').value.trim(),
+    document.getElementById('sk').value.trim(),
+    document.getElementById('sp').value.trim(),
+    'Indonesia'
+  ].filter(Boolean).join(', ');
+  if(!addr||addr==='Indonesia')return;
+  await geocodeAndPin(addr);
+}
+async function geocodeAndPin(addrOverride){
+  const status=document.getElementById('map-geocode-status');
+  const addr=addrOverride||[
+    document.getElementById('ra').value.trim(),
+    document.getElementById('skec').value.trim(),
+    document.getElementById('sk').value.trim(),
+    document.getElementById('sp').value.trim(),
+    'Indonesia'
+  ].filter(Boolean).join(', ');
+  if(!addr){status.textContent='Please fill address fields first.';return;}
+  status.textContent='🔍 Searching...';
+  try{
+    const key=encodeURIComponent('0704b35433cc4f80babc43470940e7a8');
+    const q=encodeURIComponent(addr);
+    const res=await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${q}&key=${key}&countrycode=id&limit=1&no_annotations=1`);
+    const data=await res.json();
+    if(data.results&&data.results.length>0){
+      const loc=data.results[0].geometry;
+      if(!mapInstance)initMap(loc.lat,loc.lng,17);
+      else{
+        if(!mapMarker)addMarker(loc.lat,loc.lng);
+        else movePin(loc.lat,loc.lng);
+      }
+      status.innerHTML=`<span style="color:#2e7d32">✅ ${data.results[0].formatted.slice(0,70)}</span>`;
+    }else{
+      status.innerHTML=`<span style="color:#856404">⚠️ Location not found. Pin manually on the map.</span>`;
+      if(!mapInstance)initMap(-6.2088,106.8456,13);
+    }
+  }catch(e){
+    status.innerHTML=`<span style="color:#c0392b">❌ Geocoding error. Pin manually.</span>`;
+    if(!mapInstance)initMap(-6.2088,106.8456,13);
+  }
+}
+
+function ren(){
+  const tb=document.getElementById('tb'),tw=document.getElementById('tw'),se=document.getElementById('se');
+  const tfoot=document.getElementById('tfoot-budget');
+  if(!rows.length){tw.style.display='none';se.style.display='block';tfoot.style.display='none';chkDc();return;}
+  tw.style.display='block';se.style.display='none';
+
+  tb.innerHTML=rows.map((r,i)=>{
+    const sk=r.sk,q=r.q||0,g=q>0?gt(sk,q):null,bc=BBC[sk.b]||'bnb';
+    const over=q>sk.s&&sk.s>0;
+    const cogsDisp=sk.cg>0?'Rp '+sk.cg.toLocaleString('id-ID'):'—';
+    const budgetDisp=q>0&&sk.cg>0?'Rp '+(q*sk.cg).toLocaleString('id-ID'):'—';
+    return `<tr><td><div style="font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${sk.n}">${sk.n}</div><div style="font-size:10px;color:#888">${sk.id}</div></td><td><span class="bdg ${bc}" style="white-space:nowrap">${sk.b}</span></td><td style="white-space:nowrap">${sk.s>0?sk.s.toLocaleString():'0'}</td><td style="white-space:nowrap">${sk.d>0?sk.d+'d':'—'}</td><td><input type="number" min="1" value="${q||''}" style="width:60px;font-size:12px;padding:4px 6px;border:1px solid #d3d1c7;border-radius:6px" placeholder="0" oninput="sq(${i},this.value)">${over?'<div style="font-size:10px;color:#c0392b;white-space:nowrap">Exceeds available stock</div>':''}</td><td style="font-size:12px;color:#444;white-space:nowrap">${cogsDisp}</td><td style="font-size:12px;font-weight:600;color:#1a1a18;white-space:nowrap">${budgetDisp}</td><td><span class="gp ${g?g.c:''}" style="white-space:nowrap;display:inline-block">${g?g.l:'—'}</span></td><td><button class="rb" onclick="rr(${i})">✕</button></td></tr>`;
+  }).join('');
+
+  // Total budget row
+  const total=totalBudgetUsed();
+  if(total>0){
+    tfoot.style.display='';
+    document.getElementById('total-budget-display').textContent='Rp '+Math.round(total).toLocaleString('id-ID');
+  } else {
+    tfoot.style.display='none';
+  }
+
+  // Budget remaining info
+  const useBudget=document.getElementById('use-budget').checked;
+  const totalBgt=parseFloat(document.getElementById('total-budget')?.value)||0;
+  const remEl=document.getElementById('budget-remaining-info');
+  if(useBudget && totalBgt>0 && remEl){
+    const rem=totalBgt-total;
+    remEl.style.display='block';
+    if(rem<0){
+      remEl.style.color='#c0392b';
+      remEl.innerHTML=`⚠️ Budget exceeded by <strong>IDR ${Math.abs(Math.round(rem)).toLocaleString('id-ID')}</strong>`;
+    } else {
+      remEl.style.color='#2e7d32';
+      remEl.innerHTML=`Remaining budget: <strong>IDR ${Math.round(rem).toLocaleString('id-ID')}</strong>`;
+    }
+  } else if(remEl){
+    remEl.style.display='none';
+  }
+
+  chkDc();
+}
+
+function sq(i,v){rows[i].q=parseInt(v)||0;ren();}
+function rr(i){rows.splice(i,1);ren();}
+
+function fs(){
+  const q=document.getElementById('ss').value.toLowerCase();
+  const dd=document.getElementById('dd-s');
+  const m=SKU.filter(s=>(s.n.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||s.b.toLowerCase().includes(q))&&!rows.some(r=>r.sk.id===s.id));
+  dd.innerHTML=m.length?m.map(s=>`<div class="do" onclick="ar('${s.id.replace(/'/g,"\\'")}')"><span style="font-size:12px;font-weight:600">${s.n}</span> <span class="bdg ${BBC[s.b]||'bnb'}" style="margin-left:4px">${s.b}</span></div>`).join(''):'<div class="do dis">No results</div>';
+}
+function ar(id){
+  const s=SKU.find(x=>x.id===id);
+  if(!s||rows.some(r=>r.sk.id===id))return;
+  rows.push({sk:s,q:0});
+  document.getElementById('ss').value='';
+  document.getElementById('dd-s').style.display='none';
+  ren();
+}
+function ss2(){fs();document.getElementById('dd-s').style.display='block';}
+function hs(d){setTimeout(()=>document.getElementById('dd-s').style.display='none',d);}
+
+const DDM={d:DEPTS,c:CHS,p:PROVS,b:BGTS.map(x=>x.l)};
+const DID={d:'sd',c:'sc',p:'sp',b:'sb'};
+const VID={d:'vd',c:'vc',p:'vp',b:'vb'};
+function fd(t){
+  const el=document.getElementById(DID[t]),q=(el.value||'').toLowerCase(),dd=document.getElementById('dd-'+t);
+  const m=DDM[t].filter(x=>x.toLowerCase().includes(q));
+  dd.innerHTML=m.length?m.map(x=>`<div class="do" onclick="sel('${t}','${x.replace(/'/g,"\\'")}')">${x}</div>`).join(''):'<div class="do dis">No results</div>';
+  dd.style.display='block';
+}
+function hd(t,d){setTimeout(()=>document.getElementById('dd-'+t).style.display='none',d);}
+function sel(t,v){
+  document.getElementById(DID[t]).value=v;
+  document.getElementById(VID[t]).value=v;
+  document.getElementById('dd-'+t).style.display='none';
+}
+
+function gc(){
+  const bgt=document.getElementById('vb').value;
+  const bm=BGTS.find(x=>x.l===bgt);
+  const code=bm?bm.c:'XX';
+  const now=new Date();
+  const mm=String(now.getMonth()+1).padStart(2,'0');
+  const yyyy=now.getFullYear();
+  ctr++;
+  return `${code}/${mm}/${yyyy}/${String(ctr).padStart(3,'0')}`;
+}
+
+const BACKEND_URL='https://script.google.com/macros/s/AKfycbxD7Wuxvjzk18RHqJR3UJuUIpqLHqJC7EKLlb5xuQksA67YKNg7lbpuo12YjqtU48U/exec';
+
+function buildPayload(){
+  return {
+    requestor_name:   document.getElementById('req').value.trim(),
+    requestor_email:  document.getElementById('req-email').value.trim(),
+    department:       document.getElementById('vd').value,
+    sales_channel:    document.getElementById('vc').value,
+    source_of_budget: document.getElementById('vb').value,
+    is_urgent:        getSelectedCourier() === 'Lalamove' && !isSelfArrange(),
+    self_arrange:     isSelfArrange(),
+    courier:          getSelectedCourier(),
+    items: rows.map(r=>({
+      sku_id:          r.sk.id,
+      sku_name:        r.sk.n,
+      brand:           r.sk.b,
+      qty:             r.q,
+      cogs:            r.sk.cg||0,
+      soh_at_request:  r.sk.s,
+      doi_at_request:  r.sk.d,
+      avg_daily_sales: r.sk.a,
+      simulated_doi:   (r.sk.a>0&&r.q>=(THR[r.sk.b]?.q||20))?Math.round((r.sk.s-r.q)/r.sk.a):null,
+      gate_1_result:   r.q<(THR[r.sk.b]?.q||20)?'Approved':'Escalated',
+      gate_2_result:   (()=>{const g=gt(r.sk,r.q);if(g.r==='ok')return r.q<(THR[r.sk.b]?.q||20)?'N/A':'Approved';if(g.r==='rv')return 'No Data';if(g.r==='dc')return 'Declined';return 'N/A';})(),
+      final_status:    (()=>{const g=gt(r.sk,r.q);if(g.r==='ok')return 'Approved';if(g.r==='rv')return 'Needs Review';return 'Declined';})(),
+    })),
+    recipient_name:   document.getElementById('rn').value.trim(),
+    recipient_phone:  document.getElementById('rp').value.trim(),
+    recipient_email:  document.getElementById('re').value.trim(),
+    delivery_address: document.getElementById('ra').value.trim(),
+    city:             document.getElementById('sk').value.trim(),
+    district:         document.getElementById('skec').value.trim(),
+    province:         document.getElementById('sp').value.trim(),
+    country:          document.getElementById('rng').value.trim(),
+    postal_code:      document.getElementById('rkp').value.trim(),
+    recipient_lat:    document.getElementById('gmaps-lat').value,
+    recipient_lng:    document.getElementById('gmaps-lng').value,
+    gmaps_url:        '',    city:             document.getElementById('rk').value.trim(),
+    province:         document.getElementById('vp').value,
+    country:          document.getElementById('rng').value.trim(),
+    postal_code:      document.getElementById('rkp').value.trim(),
+    remarks:          document.getElementById('rmk').value.trim(),
+    use_budget:       document.getElementById('use-budget').checked,
+    total_budget:     parseFloat(document.getElementById('total-budget')?.value)||0,
+  };
+}
+
+async function sub(){
+  const errs=[];
+  if(!document.getElementById('req').value.trim())errs.push('Requestor name is required.');
+  if(!document.getElementById('req-email').value.trim())errs.push('Requestor email is required.');
+  const emailVal=document.getElementById('req-email').value.trim();
+  if(emailVal&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal))errs.push('Please enter a valid email address.');
+  if(!document.getElementById('vd').value)errs.push('Please select a department.');
+  if(!document.getElementById('vc').value)errs.push('Please select a sales channel.');
+  if(!document.getElementById('vb').value)errs.push('Please select a source of budget.');
+  if(!rows.length)errs.push('Please add at least one SKU to the request.');
+  if(rows.some(r=>!r.q||r.q<=0))errs.push('All items must have a quantity greater than zero.');
+  if(rows.some(r=>r.sk.s>0&&r.q>r.sk.s))errs.push('One or more items have a quantity that exceeds the current stock on hand.');
+  if(rows.some(r=>r.q>0&&gt(r.sk,r.q).r==="dc"))errs.push('One or more items have been auto-declined. Please adjust the quantity before submitting.');
+  if(!document.getElementById('rn').value.trim())errs.push('Recipient name is required.');
+  if(!document.getElementById('rp').value.trim())errs.push('Recipient phone number is required.');
+  const phoneVal = document.getElementById('rp').value.trim();
+  if(phoneVal && !/^08\d{8,12}$/.test(phoneVal))errs.push('Phone number format is invalid. Please use format: 08xxxxxxxxxx');
+  if(!document.getElementById('ra').value.trim())errs.push('Delivery address is required.');
+  if(!document.getElementById('vp').value)errs.push('Please select a province.');
+  if(!document.getElementById('vk').value)errs.push('Please select a kabupaten/kota.');
+  if(!document.getElementById('skec').value.trim())errs.push('Kecamatan is required.');
+  if(!document.getElementById('rkp').value.trim())errs.push('Postal code is required.');
+  if(!document.getElementById('rng').value.trim())errs.push('Country is required.');
+
+  // Courier validation
+  const courier     = getSelectedCourier();
+  const selfArrange = isSelfArrange();
+  if(!courier) errs.push('Please select a courier.');
+
+  // Lalamove: only Jabodetabek, only if system arranges
+  if(courier === 'Lalamove' && !selfArrange) {
+    const city = document.getElementById('sk').value.trim();
+    const isJabodetabek = JABODETABEK.some(area =>
+      city.toLowerCase().includes(area.toLowerCase()) ||
+      area.toLowerCase().includes(city.toLowerCase())
+    );
+    if(!isJabodetabek) errs.push('Lalamove is only available for Jabodetabek area. Please select JNE or arrange the courier yourself.');
+  }
+
+  // Map pin: required only if system arranges courier
+  if(!selfArrange) {
+    const lat = document.getElementById('gmaps-lat').value;
+    const lng = document.getElementById('gmaps-lng').value;
+    if(!lat || !lng) errs.push('Please pin the delivery location on the map (click "Find on Map" or click directly on the map).');
+  }
+  const ee=document.getElementById('ferr');
+  if(errs.length){ee.textContent=errs[0];ee.style.display='block';ee.scrollIntoView({behavior:'smooth',block:'nearest'});return;}
+  ee.style.display='none';
+
+  // Show loading state
+  const btn=document.getElementById('submit-btn');
+  btn.textContent='Submitting...';
+  btn.disabled=true;
+
+  try {
+    const payload=buildPayload();
+    const res=await fetch(BACKEND_URL,{
+      method:'POST',
+      headers:{'Content-Type':'text/plain'},
+      body:JSON.stringify(payload),
+    });
+    const data=await res.json();
+    if(data.success){
+      sres(data.request_code, data.status);
+    } else {
+      ee.textContent='Submission error: '+(data.error||'Unknown error. Please try again.');
+      ee.style.display='block';
+    }
+  } catch(err){
+    // Fallback: show result locally if backend unreachable
+    sres(null, null);
+  } finally {
+    btn.textContent='Submit Request';
+    btn.disabled=false;
+  }
+}
+
+function sres(backendCode, backendStatus){
+  const rc          = backendCode || gc();
+  const bgt         = document.getElementById('vb').value;
+  const bm          = BGTS.find(x=>x.l===bgt);
+  const isUrgent    = getSelectedCourier() === 'Lalamove' && !isSelfArrange();
+  const selfArrange = isSelfArrange();
+  const courier     = getSelectedCourier();
+
+  // Determine title and message based on actual backend status
+  let stCls, stTitle, stMsg;
+  if (backendStatus === 'Pending SC Approval') {
+    stCls  = 'rwn';
+    stTitle = 'Request Submitted — Pending SC Approval';
+    stMsg   = 'Your urgent request is awaiting review by the Supply Chain team. You will be notified by email once a decision is made.';
+  } else if (isUrgent) {
+    stCls  = 'rok';
+    stTitle = 'Request Submitted — Lalamove Order Will Be Created Shortly';
+    stMsg   = 'Your Lalamove order will be automatically created within the next batch cycle. The warehouse admin will be notified.';
+  } else if (backendStatus === 'Approved') {
+    stCls  = 'rok';
+    stTitle = 'Request Submitted — All Items Approved';
+    stMsg   = 'All requested items have been automatically approved. The warehouse admin has been notified.';
+  } else {
+    // Fallback to frontend logic if no backend status
+    const allOk = rows.every(r=>gt(r.sk,r.q).r==='ok');
+    const anyRv = rows.some(r=>gt(r.sk,r.q).r==='rv');
+    stCls  = allOk ? 'rok' : 'rwn';
+    stTitle = allOk ? 'Request Submitted — All Items Approved'
+            : anyRv ? 'Request Submitted — Pending Supply Chain Review'
+            : 'Request Submitted';
+    stMsg   = allOk ? 'All requested items have been automatically approved.'
+            : anyRv ? 'One or more items require manual review by the Supply Chain team before fulfilment.'
+            : '';
+  }
+
+  const skRows=rows.map(r=>{
+    const g=gt(r.sk,r.q),bc=BBC[r.sk.b]||'bnb',gc2=g.r==='ok'?'bok':g.r==='rv'?'brv':'bdc',gl=g.r==='ok'?'Approved':g.r==='rv'?'Needs review':'Declined';
+    return `<tr><td style="font-size:11px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.sk.n}</td><td><span class="bdg ${bc}">${r.sk.b}</span></td><td style="font-size:12px">${r.q}</td><td><span class="bdg ${gc2}">${gl}</span></td></tr>`;
+  }).join('');
+
+  const email     = document.getElementById('re').value;
+  const rmk       = document.getElementById('rmk').value;
+  const useBudget = document.getElementById('use-budget').checked;
+  const totalBgt=parseFloat(document.getElementById('total-budget')?.value)||0;
+  const totalUsed=totalBudgetUsed();
+  document.getElementById('ri').innerHTML=`
+    <div class="rcard ${stCls}"><div style="font-size:16px;font-weight:700;margin-bottom:5px">${stTitle}</div><div style="font-size:13px">${stMsg}</div></div>
+    <div class="sec">
+      <div class="stitle">Submission Summary</div>
+      <div style="margin-bottom:.875rem"><div style="font-size:11px;color:#73726c;margin-bottom:4px">Request code</div><span class="cc">${rc}</span></div>
+      <table class="st" style="margin-bottom:.875rem">
+        <tr><td>Requestor Name</td><td>${document.getElementById('req').value}</td></tr>
+        <tr><td>Requestor Email</td><td>${document.getElementById('req-email').value}</td></tr>
+        <tr><td>Department</td><td>${document.getElementById('vd').value}</td></tr>
+        <tr><td>Sales channel</td><td>${document.getElementById('vc').value}</td></tr>
+        <tr><td>Source of budget</td><td>${bgt}${bm?` <span class="bdg bnb" style="font-size:10px">${bm.c}</span>`:''}</td></tr>
+        <tr><td>Courier</td><td>${courier}${selfArrange?' <span style="font-size:11px;color:#73726c">(self-arranged)</span>':isUrgent?' <span class="bdg" style="background:#fdecea;color:#b71c1c">Urgent — Lalamove order will be created automatically</span>':' <span style="font-size:11px;color:#73726c">(system-arranged, batch processed)</span>'}</td></tr>
+        ${useBudget&&totalBgt>0?`<tr><td>Total Available Budget</td><td>IDR ${Math.round(totalBgt).toLocaleString('id-ID')}</td></tr><tr><td>Total Estimated Cost</td><td><strong>IDR ${Math.round(totalUsed).toLocaleString('id-ID')}</strong></td></tr><tr><td>Remaining Budget</td><td style="color:${totalBgt-totalUsed>=0?'#2e7d32':'#c0392b'}"><strong>IDR ${Math.round(totalBgt-totalUsed).toLocaleString('id-ID')}</strong></td></tr>`:''}
+        <tr><td>Recipient Name</td><td>${document.getElementById('rn').value}</td></tr>
+        <tr><td>Recipient Phone</td><td>${document.getElementById('rp').value}</td></tr>
+        ${email?`<tr><td>Email</td><td>${email}</td></tr>`:''}
+        <tr><td>Delivery Address</td><td style="font-size:12px">${document.getElementById('ra').value}, ${document.getElementById('skec').value}, ${document.getElementById('sk').value}, ${document.getElementById('sp').value} ${document.getElementById('rkp').value}</td></tr>
+        ${rmk?`<tr><td>Additional Remarks</td><td>${rmk}</td></tr>`:''}
+      </table>
+      <div style="font-size:11px;font-weight:600;color:#73726c;margin-bottom:6px">Item Breakdown</div>
+      <table class="sk-tbl" style="table-layout:auto"><thead><tr><th>SKU</th><th>Brand</th><th>Qty</th><th>Status</th></tr></thead><tbody>${skRows}</tbody></table>
+    </div>`;
+  document.getElementById('vf').style.display='none';
+  document.getElementById('vr').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function rst(){
+  rows=[];
+  ['req','req-email','rn','rp','re','ra','skec','rkp','rmk','gmaps-lat','gmaps-lng'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  document.getElementById('rng').value='Indonesia';
+  ['sd','vd','sc','vc','sb','vb','ss'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  ['sp','vp','sk','vk'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  document.getElementById('sk').disabled=true;
+  document.getElementById('sk').placeholder='Select province first...';
+  document.getElementById('gmaps-status').textContent='';
+  document.getElementById('map-geocode-status').textContent='';
+  if(mapMarker&&mapInstance){mapInstance.removeLayer(mapMarker);mapMarker=null;}
+  if(mapInstance)mapInstance.setView([-6.2088,106.8456],13);
+  document.getElementById('self-arrange').checked=false;
+  document.querySelectorAll('input[name="courier"]').forEach(r=>r.checked=false);
+  document.getElementById('lbl-paxel').style.display='none';
+  document.getElementById('courier-note').textContent='';
+  document.getElementById('use-budget').checked=false;
+  document.getElementById('budget-input-wrap').style.display='none';
+  const tb=document.getElementById('total-budget');if(tb)tb.value='';
+  document.getElementById('ferr').style.display='none';
+  document.getElementById('dw').style.display='none';
+  ren();
+  document.getElementById('vf').style.display='block';
+  document.getElementById('vr').style.display='none';
+  window.scrollTo(0,0);
+}
+// Page init
+loadSkuData();
+loadProvinsi();
+initMapDefault();
+ren();
+</script>
+
+
+</body></html>
