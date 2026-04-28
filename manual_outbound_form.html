@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0061)file:///C:/Users/nurrc/Downloads/manual_outbound_form_30.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manual Outbound Request</title>
 <style>
@@ -61,8 +61,8 @@ textarea{resize:vertical;min-height:72px}
 .cc{font-family:'Courier New',monospace;font-size:15px;font-weight:700;background:#f1efe8;padding:4px 10px;border-radius:6px;display:inline-block;letter-spacing:.02em}
 .empty-txt{font-size:13px;color:#b4b2a9;padding:6px 0}
 </style>
-<link rel="stylesheet" href="./latest_files/leaflet.min.css">
-<script src="./latest_files/leaflet.min.js.download"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 <div class="page">
@@ -75,14 +75,14 @@ textarea{resize:vertical;min-height:72px}
 <div class="fg"><label>Requestor Email <span class="req">*</span></label><input type="email" id="req-email" placeholder="your.name@tentanganak.com"><div style="font-size:11px;color:#73726c;margin-top:3px">Used for notifications about your request status.</div></div>
 <div class="g2">
   <div class="fg"><label>Department <span class="req">*</span></label>
-    <div class="sw"><input class="si" id="sd" placeholder="Search department..." oninput="fd(&#39;d&#39;)" onfocus="fd(&#39;d&#39;)" onblur="hd(&#39;d&#39;,250)" autocomplete="off"><div class="dd" id="dd-d" style="display:none"></div><input type="hidden" id="vd"></div>
+    <div class="sw"><input class="si" id="sd" placeholder="Search department..." oninput="fd('d')" onfocus="fd('d')" onblur="hd('d',250)" autocomplete="off"><div class="dd" id="dd-d" style="display:none"></div><input type="hidden" id="vd"></div>
   </div>
   <div class="fg"><label>Sales channel <span class="req">*</span></label>
-    <div class="sw"><input class="si" id="sc" placeholder="Search channel..." oninput="fd(&#39;c&#39;)" onfocus="fd(&#39;c&#39;)" onblur="hd(&#39;c&#39;,250)" autocomplete="off"><div class="dd" id="dd-c" style="display:none"></div><input type="hidden" id="vc"></div>
+    <div class="sw"><input class="si" id="sc" placeholder="Search channel..." oninput="fd('c')" onfocus="fd('c')" onblur="hd('c',250)" autocomplete="off"><div class="dd" id="dd-c" style="display:none"></div><input type="hidden" id="vc"></div>
   </div>
 </div>
 <div class="fg"><label>Source of budget <span class="req">*</span></label>
-  <div class="sw"><input class="si" id="sb" placeholder="Search budget..." oninput="fd(&#39;b&#39;)" onfocus="fd(&#39;b&#39;)" onblur="hd(&#39;b&#39;,250)" autocomplete="off"><div class="dd" id="dd-b" style="display:none"></div><input type="hidden" id="vb"></div>
+  <div class="sw"><input class="si" id="sb" placeholder="Search budget..." oninput="fd('b')" onfocus="fd('b')" onblur="hd('b',250)" autocomplete="off"><div class="dd" id="dd-b" style="display:none"></div><input type="hidden" id="vb"></div>
 </div>
 <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;user-select:none;margin-bottom:.75rem">
   <input type="checkbox" id="use-budget" style="width:16px;height:16px;min-width:16px;margin-top:2px;cursor:pointer;accent-color:#1a1a18" onchange="toggleBudget()">
@@ -103,9 +103,9 @@ textarea{resize:vertical;min-height:72px}
 <div class="sec">
 <div class="stitle">Requested Items</div>
 <div class="sw"><input class="si" id="ss" placeholder="Search SKU by name, ID, or brand..." oninput="fs()" onfocus="ss2()" onblur="hs(250)" autocomplete="off"><div class="dd" id="dd-s" style="display:none"></div></div>
-<div id="sku-load-status" style="font-size:11px;color:#73726c;margin-top:4px">⚠️ Could not load live SKU data. Using cached data.</div>
+<div id="sku-load-status" style="font-size:11px;color:#73726c;margin-top:4px"></div>
 <div id="dw" style="display:none"></div>
-<div class="empty-txt" id="se" style="display: block;">No items added yet. Use the search field above to add SKUs.</div>
+<div class="empty-txt" id="se">No items added yet. Use the search field above to add SKUs.</div>
 <div id="tw" style="display:none">
 <div class="sk-tbl-wrap">
   <table class="sk-tbl">
@@ -140,7 +140,7 @@ textarea{resize:vertical;min-height:72px}
   </div>
   <div class="fg">
     <label>Kabupaten / Kota <span class="req">*</span></label>
-    <div class="sw"><input class="si" id="sk" placeholder="Select province first..." oninput="filterKab()" onfocus="openKab()" onblur="closeKab(250)" autocomplete="off" disabled=""><div class="dd" id="dd-k" style="display:none"></div><input type="hidden" id="vk"></div>
+    <div class="sw"><input class="si" id="sk" placeholder="Select province first..." oninput="filterKab()" onfocus="openKab()" onblur="closeKab(250)" autocomplete="off" disabled><div class="dd" id="dd-k" style="display:none"></div><input type="hidden" id="vk"></div>
   </div>
 </div>
 <div class="g2">
@@ -159,9 +159,9 @@ textarea{resize:vertical;min-height:72px}
     <button type="button" onclick="geocodeAndPin()" id="find-map-btn" style="font-size:12px;padding:6px 14px;border-radius:7px;border:1px solid #1a1a18;background:#1a1a18;color:#fff;cursor:pointer">📍 Find on Map</button>
     <div id="map-geocode-status" style="font-size:11px;color:#73726c;align-self:center"></div>
   </div>
-  <div id="map" style="height:350px;border-radius:10px;border:1.5px solid #d3d1c7;overflow:hidden;position:relative" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
-    <div style="position: absolute; inset: 0px; display: none; align-items: center; justify-content: center; background: rgb(245, 245, 243); color: rgb(115, 114, 108); font-size: 13px;" id="map-placeholder">Map will load here</div>
-  <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="./latest_files/4237.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, 30px, 0px); opacity: 1;"><img alt="" src="./latest_files/4236.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, -226px, 0px); opacity: 1;"><img alt="" src="./latest_files/4237(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, 30px, 0px); opacity: 1;"><img alt="" src="./latest_files/4237(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, 30px, 0px); opacity: 1;"><img alt="" src="./latest_files/4238.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(350px, 286px, 0px); opacity: 1;"><img alt="" src="./latest_files/4236(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, -226px, 0px); opacity: 1;"><img alt="" src="./latest_files/4236(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, -226px, 0px); opacity: 1;"><img alt="" src="./latest_files/4238(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(94px, 286px, 0px); opacity: 1;"><img alt="" src="./latest_files/4238(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(606px, 286px, 0px); opacity: 1;"><img alt="" src="./latest_files/4237(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, 30px, 0px); opacity: 1;"><img alt="" src="./latest_files/4237(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, 30px, 0px); opacity: 1;"><img alt="" src="./latest_files/4236(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, -226px, 0px); opacity: 1;"><img alt="" src="./latest_files/4236(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, -226px, 0px); opacity: 1;"><img alt="" src="./latest_files/4238(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-162px, 286px, 0px); opacity: 1;"><img alt="" src="./latest_files/4238(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(862px, 286px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.671e+06px, 1.08482e+06px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="file:///C:/Users/nurrc/Downloads/manual_outbound_form_30.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="file:///C:/Users/nurrc/Downloads/manual_outbound_form_30.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap</div></div></div></div>
+  <div id="map" style="height:350px;border-radius:10px;border:1.5px solid #d3d1c7;overflow:hidden;position:relative">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f5f5f3;color:#73726c;font-size:13px" id="map-placeholder">Map will load here</div>
+  </div>
   <input type="hidden" id="gmaps-lat">
   <input type="hidden" id="gmaps-lng">
   <div id="gmaps-status" style="font-size:11px;margin-top:4px"></div>
@@ -940,6 +940,5 @@ loadProvinsi();
 initMapDefault();
 ren();
 </script>
-
-
-</body></html>
+</body>
+</html>
